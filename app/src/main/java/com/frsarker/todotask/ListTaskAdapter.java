@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,7 +64,10 @@ public class ListTaskAdapter extends BaseAdapter {
             if (singleTask.get("status").contentEquals("1")) {
                 holder.task_name.setText(Html.fromHtml("<strike>" + singleTask.get("task") + "</strike>"));
                 holder.checkBtn.setChecked(true);
-            } else {
+
+
+            }
+            else {
                 holder.task_name.setText(singleTask.get("task"));
                 holder.checkBtn.setChecked(false);
             }
@@ -74,6 +78,7 @@ public class ListTaskAdapter extends BaseAdapter {
                     if (isChecked) {
                         database.updateTaskStatus(singleTask.get("id"), 1);
                         tmpHolder.task_name.setText(Html.fromHtml("<strike>" + singleTask.get("task") + "</strike>"));
+
                     } else {
                         database.updateTaskStatus(singleTask.get("id"), 0);
                         tmpHolder.task_name.setText(singleTask.get("task"));

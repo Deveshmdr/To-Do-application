@@ -1,0 +1,4 @@
+#Mon Jun 08 11:11:32 NPT 2020
+base.0=D\:\\TBC\\Semester 7 & 8\\todo12\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

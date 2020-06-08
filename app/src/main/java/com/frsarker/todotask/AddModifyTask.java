@@ -106,9 +106,29 @@ public class AddModifyTask extends AppCompatActivity {
     }
 
     public void deleteTask(View v) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Are you sure you want to Delete Task?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "Task Removed", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
         mydb.deleteTask(task_id);
-        Toast.makeText(getApplicationContext(), "Task Removed", Toast.LENGTH_SHORT).show();
-        finish();
+
+
     }
 
 
